@@ -1,5 +1,9 @@
 #![cfg_attr(not(test), no_std)]
 
+/// Context API for providing generalized setup, and cleanup
+///
+/// this is useful for building APIs that use RAII-like patterns
+/// but with fixed scopes
 pub trait Context: Sized {
     type Ctx;
     fn setup_context(&mut self) -> Option<Self::Ctx>;
